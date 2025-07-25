@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Cómo ayudar? - ONG El Deseo de los Niños</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .waves {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-45deg, #002807, #009213, #002809);
+      background-size: 800% 800%;
+      animation: waveMotion 10s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes waveMotion {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .battery {
+      width: 24px;
+      height: 12px;
+      border: 2px solid white;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .battery::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: -6px;
+      width: 4px;
+      height: 6px;
+      background: white;
+      border-radius: 1px;
+    }
+
+    .battery-level {
+      width: 60%;
+      height: 100%;
+      background-color: white;
+    }
+
+    .flags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .flags img {
+      width: 20px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .header {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo-title img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .logo-title h1 {
+      font-size: 28px;
+      color: yellow;
+      margin: 0;
+    }
+
+    .nav {
+      margin-top: 20px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: yellow;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 60px auto 40px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .content h2 {
+      color: yellow;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .content h3 {
+      font-size: 20px;
+      margin-top: 30px;
+      color: white;
+    }
+
+    .content ul {
+      padding-left: 20px;
+    }
+
+    .content li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      font-style: italic;
+      padding: 15px 10px;
+      color: white;
+      background: rgba(0,0,0,0.7);
+      border-top: 1px solid #444;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+      }
+
+      .logo-title h1 {
+        font-size: 20px;
+      }
+
+      .logo-title img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .content {
+        padding: 15px;
+        margin: 40px 10px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="waves"></div>
+
+  <div class="top-bar" id="clock-container">
+    <span id="clock">--/-- --:--</span>
+    <div class="battery">
+      <div class="battery-level"></div>
+    </div>
+    <div class="flags">
+      <img src="https://flagcdn.com/w40/es.png" alt="Español" title="Español" onclick="setLanguage('es')">
+      <img src="https://flagcdn.com/w40/fr.png" alt="Français" title="Français" onclick="setLanguage('fr')">
+    </div>
+  </div>
+
+  <div class="header">
+    <div class="logo-title">
+      <img src="logoong.png" alt="Logo ONG">
+      <h1 id="main-title">
+          <a href="index.html" style="color: yellow; text-decoration: none;">ONG EL DESEO DE LOS NIÑOS</a>
+        </h1>          
+    </div>
+    <div class="nav">
+      <a href="somos.html">¿Quiénes somos?</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="como-ayudar.html">¿Cómo ayudar?</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+
+  <div class="content" id="help-content">
+    <h2 id="help-title">¿Cómo ayudar?</h2>
+    <h3 id="donate-title">Cómo donar:</h3>
+    <p>Tu ayuda puede marcar una gran diferencia en la vida de muchos niños.<br />
+      Actualmente estamos recogiendo donaciones de materiales escolares y también aceptamos aportaciones económicas a través de Bizum.
+    </p>
+  
+    <h3>Donación de materiales</h3>
+    <p>Puedes colaborar donando útiles escolares como:</p>
+    <ul>
+      <li>Cuadernos, lápices, bolígrafos</li>
+      <li>Mochilas, estuches</li>
+      <li>Colores, reglas, gomas de borrar</li>
+    </ul>
+    <p>Estos materiales serán entregados directamente a los niños y niñas en nuestras próximas misiones.</p>
+  
+    <p style="font-style: italic; text-align: center; margin-top: 30px;">
+        Cada aporte, por pequeño que sea, es una semilla de futuro.<br />
+        ¡Gracias por ser parte del cambio!
+      </p>
+      
+  </div>
+  
+
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const clock = `${day}/${month} ${hours}:${minutes}`;
+      document.getElementById("clock").textContent = clock;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  
+    function setLanguage(lang) {
+      if (lang === 'fr') {
+        document.getElementById("main-title").innerHTML = `<a href="index.html" style="color: yellow; text-decoration: none;">ONG LE DÉSIR DES ENFANTS</a>`;
+        const navLinks = document.querySelectorAll(".nav a");
+        navLinks[0].textContent = "Qui sommes-nous ?";
+        navLinks[1].textContent = "Projets";
+        navLinks[2].textContent = "Comment aider ?";
+        navLinks[3].textContent = "Contact";
+  
+        document.getElementById("help-title").textContent = "COMMENT AIDER ?";
+        document.getElementById("donate-title").textContent = "Comment faire un don:";
+  
+        // Seleccionamos TODOS los párrafos del contenido para asegurarnos de traducirlos todos:
+        const paragraphs = document.querySelectorAll("#help-content > p");
+        if(paragraphs.length >= 3) {
+          paragraphs[0].innerHTML = `Votre aide peut faire une grande différence dans la vie de nombreux enfants.<br>
+            Nous recueillons actuellement des dons de fournitures scolaires et acceptons également des contributions financières via Bizum.`;
+          paragraphs[1].textContent = "Vous pouvez collaborer en faisant don de fournitures scolaires telles que :";
+          paragraphs[2].textContent = "Ces matériaux seront directement remis aux enfants lors de nos prochaines missions.";
+          // Si tienes un cuarto párrafo para el mensaje final, ponlo aquí:
+          if(paragraphs[3]) {
+            paragraphs[3].innerHTML = `Chaque contribution, aussi petite soit-elle, est une graine d'avenir.<br>Merci de faire partie du changement !`;
+          }
+        }
+  
+        document.querySelector("#help-content h3:nth-of-type(2)").textContent = "Don de matériel";
+        document.querySelector("#help-content ul").innerHTML = `
+          <li>Cahiers, crayons, stylos</li>
+          <li>Sacs à dos, trousses</li>
+          <li>Couleurs, règles, gommes à effacer</li>`;
+  
+        document.querySelector("footer").innerHTML = `Chaque contribution, aussi petite soit-elle, est une graine d'avenir.<br>Merci de faire partie du changement !`;
+  
+      } else {
+        // Español por defecto
+        document.getElementById("main-title").innerHTML = `<a href="index.html" style="color: yellow; text-decoration: none;">ONG EL DESEO DE LOS NIÑOS</a>`;
+        const navLinks = document.querySelectorAll(".nav a");
+        navLinks[0].textContent = "¿Quiénes somos?";
+        navLinks[1].textContent = "Proyectos";
+        navLinks[2].textContent = "¿Cómo ayudar?";
+        navLinks[3].textContent = "Contacto";
+  
+        document.getElementById("help-title").textContent = "¿Cómo ayudar?";
+        document.getElementById("donate-title").textContent = "Cómo donar:";
+  
+        const paragraphs = document.querySelectorAll("#help-content > p");
+        if(paragraphs.length >= 3) {
+          paragraphs[0].innerHTML = `Tu ayuda puede marcar una gran diferencia en la vida de muchos niños.<br>
+            Actualmente estamos recogiendo donaciones de materiales escolares y también aceptamos aportaciones económicas a través de Bizum.`;
+          paragraphs[1].textContent = "Puedes colaborar donando útiles escolares como:";
+          paragraphs[2].textContent = "Estos materiales serán entregados directamente a los niños y niñas en nuestras próximas misiones.";
+          if(paragraphs[3]) {
+            paragraphs[3].innerHTML = `Cada aporte, por pequeño que sea, es una semilla de futuro.<br>¡Gracias por ser parte del cambio!`;
+          }
+        }
+  
+        document.querySelector("#help-content h3:nth-of-type(2)").textContent = "Donación de materiales";
+        document.querySelector("#help-content ul").innerHTML = `
+          <li>Cuadernos, lápices, bolígrafos</li>
+          <li>Mochilas, estuches</li>
+          <li>Colores, reglas, gomas de borrar</li>`;
+  
+        document.querySelector("footer").innerHTML = `Cada aporte, por pequeño que sea, es una semilla de futuro.<br>¡Gracias por ser parte del cambio!`;
+      }
+    }
+  </script>
+  
+</body>
+</html>

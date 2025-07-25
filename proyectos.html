@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyectos - ONG El Deseo de los Niños</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .waves {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-45deg, #002807, #009213, #002809);
+      background-size: 800% 800%;
+      animation: waveMotion 10s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes waveMotion {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .battery {
+      width: 24px;
+      height: 12px;
+      border: 2px solid white;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .battery::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: -6px;
+      width: 4px;
+      height: 6px;
+      background: white;
+      border-radius: 1px;
+    }
+
+    .battery-level {
+      width: 60%;
+      height: 100%;
+      background-color: white;
+    }
+
+    .flags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .flags img {
+      width: 20px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .header {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo-title img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .logo-title h1 {
+      font-size: 28px;
+      color: yellow;
+      margin: 0;
+    }
+
+    .nav {
+      margin-top: 20px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: yellow;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+
+    .content h2 {
+      color: yellow;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .content h3 {
+      font-size: 20px;
+      margin-top: 30px;
+      color: white;
+    }
+
+    .content ul {
+      padding-left: 20px;
+    }
+
+    .content li {
+      margin-bottom: 10px;
+    }
+
+    .map {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .map img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+      }
+
+      .logo-title h1 {
+        font-size: 20px;
+      }
+
+      .logo-title img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .content {
+        padding: 15px;
+        margin: 40px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="waves"></div>
+
+  <div class="top-bar" id="clock-container">
+    <span id="clock">--/-- --:--</span>
+    <div class="battery">
+      <div class="battery-level"></div>
+    </div>
+    <div class="flags">
+      <img src="https://flagcdn.com/w40/es.png" alt="Español" title="Español" onclick="setLanguage('es')">
+      <img src="https://flagcdn.com/w40/fr.png" alt="Français" title="Français" onclick="setLanguage('fr')">
+    </div>
+  </div>
+
+  <div class="header">
+    <div class="logo-title">
+      <img src="logoong.png" alt="Logo ONG">
+      <h1 id="main-title">
+          <a href="index.html" style="color: yellow; text-decoration: none;">ONG EL DESEO DE LOS NIÑOS</a>
+        </h1>          
+    </div>
+    <div class="nav">
+      <a href="somos.html">¿Quiénes somos?</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="ayuda.html">¿Cómo ayudar?</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+
+  <div class="content" id="project-content">
+    <h2 id="project-title">Proyecto en Divo, Costa de Marfil</h2>
+    <p id="intro-1">En nuestra próxima misión, viajaremos a Divo, una ciudad ubicada al sur de Costa de Marfil, en la región de Lôh-Djiboua.</p>
+
+    <div class="map">
+      <img src="Map.png" alt="Mapa de Divo">
+    </div>
+
+    <p id="intro-2">Este proyecto representa un paso más en nuestro compromiso con la infancia, llevando herramientas, valores y esperanza a comunidades que enfrentan grandes desafíos.</p>
+    <p id="intro-3">Durante nuestra estancia en Divo, realizaremos una serie de actividades diseñadas para fortalecer la autoestima, el aprendizaje y el bienestar emocional de los niños y niñas de la zona.</p>
+
+    <h3 id="activities-title">Actividades previstas:</h3>
+    <ul>
+      <li id="activity-1"><strong>Talleres educativos y creativos:</strong> juegos didácticos, lectura en grupo, manualidades y actividades que estimulan el pensamiento, la imaginación y la colaboración.</li>
+      <li id="activity-2"><strong>Dinámicas de desarrollo personal:</strong> espacios para que los niños reflexionen sobre sus sueños, se expresen libremente y fortalezcan su confianza y autoestima.</li>
+      <li id="activity-3"><strong>Actividades deportivas y recreativas:</strong> juegos en equipo, fútbol, dinámicas de grupo que fomenten la alegría, el compañerismo y los hábitos saludables.</li>
+      <li id="activity-4"><strong>Arte comunitario:</strong> pintura de murales y decoración de espacios compartidos con mensajes positivos creados por los propios niños.</li>
+    </ul>
+
+    <p id="closing">Con cada acción, buscamos sembrar herramientas reales y emocionales que les permitan crecer con dignidad, conciencia y esperanza. En Divo, como en cada rincón al que llegamos, apostamos por una infancia que pueda imaginar y construir su futuro.</p>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const clock = `${day}/${month} ${hours}:${minutes}`;
+      document.getElementById("clock").textContent = clock;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function setLanguage(lang) {
+      const texts = {
+        es: {
+          title: "ONG EL DESEO DE LOS NIÑOS",
+          menu: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"],
+          project: {
+            title: "Proyecto en Divo, Costa de Marfil",
+            intro1: "En nuestra próxima misión, viajaremos a Divo, una ciudad ubicada al sur de Costa de Marfil, en la región de Lôh-Djiboua.",
+            intro2: "Este proyecto representa un paso más en nuestro compromiso con la infancia, llevando herramientas, valores y esperanza a comunidades que enfrentan grandes desafíos.",
+            intro3: "Durante nuestra estancia en Divo, realizaremos una serie de actividades diseñadas para fortalecer la autoestima, el aprendizaje y el bienestar emocional de los niños y niñas de la zona.",
+            activitiesTitle: "Actividades previstas:",
+            a1: "Talleres educativos y creativos: juegos didácticos, lectura en grupo, manualidades y actividades que estimulan el pensamiento, la imaginación y la colaboración.",
+            a2: "Dinámicas de desarrollo personal: espacios para que los niños reflexionen sobre sus sueños, se expresen libremente y fortalezcan su confianza y autoestima.",
+            a3: "Actividades deportivas y recreativas: juegos en equipo, fútbol, dinámicas de grupo que fomenten la alegría, el compañerismo y los hábitos saludables.",
+            a4: "Arte comunitario: pintura de murales y decoración de espacios compartidos con mensajes positivos creados por los propios niños.",
+            closing: "Con cada acción, buscamos sembrar herramientas reales y emocionales que les permitan crecer con dignidad, conciencia y esperanza. En Divo, como en cada rincón al que llegamos, apostamos por una infancia que pueda imaginar y construir su futuro."
+          }
+        },
+        fr: {
+          title: "ONG LE DÉSIR DES ENFANTS",
+          menu: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"],
+          project: {
+            title: "Projet à Divo, Côte d'Ivoire",
+            intro1: "Lors de notre prochaine mission, nous nous rendrons à Divo, une ville située au sud de la Côte d'Ivoire, dans la région de Lôh-Djiboua.",
+            intro2: "Ce projet représente une étape de plus dans notre engagement envers l'enfance, en apportant des outils, des valeurs et de l'espoir à des communautés confrontées à de grands défis.",
+            intro3: "Pendant notre séjour à Divo, nous mènerons une série d'activités conçues pour renforcer l'estime de soi, l'apprentissage et le bien-être émotionnel des enfants de la région.",
+            activitiesTitle: "Activités prévues :",
+            a1: "Ateliers éducatifs et créatifs: jeux éducatifs, lectures en groupe, travaux manuels et activités stimulant la pensée, l’imagination et la collaboration.",
+            a2: "Dynamiques de développement personnel: espaces pour que les enfants réfléchissent à leurs rêves, s’expriment librement et renforcent leur confiance et leur estime de soi.",
+            a3: "Activités sportives et récréatives: jeux en équipe, football, dynamiques de groupe favorisant la joie, la camaraderie et des habitudes saines.",
+            a4: "Art communautaire: peinture de fresques et décoration d’espaces partagés avec des messages positifs créés par les enfants eux-mêmes.",
+            closing: "Avec chaque action, nous cherchons à semer des outils concrets et émotionnels permettant aux enfants de grandir avec dignité, conscience et espoir. À Divo, comme dans chaque lieu où nous intervenons, nous misons sur une enfance capable d’imaginer et de construire son avenir."
+          }
+        }
+      };
+
+      document.getElementById("main-title").innerHTML = `<a href="index.html" style="color: yellow; text-decoration: none;">${texts[lang].title}</a>`;
+      const links = document.querySelectorAll(".nav a");
+      links.forEach((link, i) => link.textContent = texts[lang].menu[i]);
+
+      const p = texts[lang].project;
+      document.getElementById("project-title").textContent = p.title;
+      document.getElementById("intro-1").textContent = p.intro1;
+      document.getElementById("intro-2").textContent = p.intro2;
+      document.getElementById("intro-3").textContent = p.intro3;
+      document.getElementById("activities-title").textContent = p.activitiesTitle;
+
+      // Para las actividades, usamos innerHTML para mantener el <strong>
+      document.getElementById("activity-1").innerHTML = `<strong>${p.a1.split(":")[0]}:</strong>${p.a1.split(":")[1]}`;
+      document.getElementById("activity-2").innerHTML = `<strong>${p.a2.split(":")[0]}:</strong>${p.a2.split(":")[1]}`;
+      document.getElementById("activity-3").innerHTML = `<strong>${p.a3.split(":")[0]}:</strong>${p.a3.split(":")[1]}`;
+      document.getElementById("activity-4").innerHTML = `<strong>${p.a4.split(":")[0]}:</strong>${p.a4.split(":")[1]}`;
+
+      document.getElementById("closing").textContent = p.closing;
+    }
+  </script>
+</body>
+</html>

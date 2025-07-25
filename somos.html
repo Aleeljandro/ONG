@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Quiénes somos? - ONG El Deseo de los Niños</title>
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .waves {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-45deg, #002807, #009213, #002809);
+      background-size: 800% 800%;
+      animation: waveMotion 10s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes waveMotion {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .battery {
+      width: 24px;
+      height: 12px;
+      border: 2px solid white;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .battery::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: -6px;
+      width: 4px;
+      height: 6px;
+      background: white;
+      border-radius: 1px;
+    }
+
+    .battery-level {
+      width: 60%;
+      height: 100%;
+      background-color: white;
+    }
+
+    .flags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .flags img {
+      width: 20px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .header {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo-title img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .logo-title h1 {
+      font-size: 28px;
+      color: yellow;
+      margin: 0;
+    }
+
+    .nav {
+      margin-top: 20px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: yellow;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 0 20px;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .content h2 {
+      color: yellow;
+      font-size: 26px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      color: #ccc;
+      font-style: italic;
+      padding: 40px 20px;
+      font-size: 16px;
+    }
+
+    .dark-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+      }
+
+      .logo-title h1 {
+        font-size: 20px;
+      }
+
+      .logo-title img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .content {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="waves"></div>
+
+  <div class="top-bar" id="clock-container">
+    <span id="clock">--/-- --:--</span>
+    <div class="battery">
+      <div class="battery-level"></div>
+    </div>
+<div class="flags">
+    <img src="https://flagcdn.com/w40/es.png" alt="Español" title="Español" onclick="setLanguage('es')">
+    <img src="https://flagcdn.com/w40/fr.png" alt="Français" title="Français" onclick="setLanguage('fr')">
+  </div>    
+    
+  </div>
+
+  <div class="header">
+    <div class="logo-title">
+      <img src="logoong.png" alt="Logo ONG">
+      <h1><a href="index.html" style="color: yellow; text-decoration: none;" id="main-title">ONG EL DESEO DE LOS NIÑOS</a></h1>
+    </div>
+    <div class="nav">
+        <a href="somos.html" id="nav-who">¿Quiénes somos?</a>
+        <a href="proyectos.html" id="nav-projects">Proyectos</a>
+        <a href="ayuda.html" id="nav-help">¿Cómo ayudar?</a>
+        <a href="contacto.html" id="nav-contact">Contacto</a>
+      </div>      
+  </div>
+
+  <div class="content">
+    <div class="dark-box">
+        <h2 id="section-title">¿QUIÉNES SOMOS?</h2>
+        <p id="p1">Nuestra ONG nació desde el amor, el dolor y la esperanza.</p>
+        <p id="p2">En 2015, perdimos a un joven muy querido de nuestra familia. Partió demasiado pronto, llevando consigo una historia marcada por una infancia difícil, pero también por una fuerza inmensa, sueños grandes y un corazón lleno de empatía. Su vida nos enseñó que cada niño (sin importar sus circunstancias) merece la oportunidad de crecer rodeado de apoyo, valores y posibilidades.</p>
+        <p id="p3">Como consuelo, como homenaje, y como compromiso con su memoria, decidimos transformar ese dolor en acción. Así nació esta organización, con el propósito de acompañar a niñas y niños en situaciones vulnerables, ofreciéndoles herramientas para soñar y alcanzar una vida plena.</p>
+        <p id="p4">Creemos que la infancia es la raíz de todo. Por eso, trabajamos para brindarles no solo apoyo intelectual y educativo, sino también valores humanos que les permitan desarrollar su potencial y usar los recursos a su alrededor con inteligencia, empatía y confianza.</p>
+        <div class="footer" id="footer-text">
+          Nuestro sueño es que ellos también puedan cumplir los suyos.
+        </div>
+      </div>      
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const clock = `${day}/${month} ${hours}:${minutes}`;
+      document.getElementById("clock").textContent = clock;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+  <script>
+    const translations = {
+      es: {
+        title: "ONG EL DESEO DE LOS NIÑOS",
+        nav: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"],
+        sectionTitle: "¿QUIÉNES SOMOS?",
+        p1: "Nuestra ONG nació desde el amor, el dolor y la esperanza.",
+        p2: "En 2015, perdimos a un joven muy querido de nuestra familia. Partió demasiado pronto, llevando consigo una historia marcada por una infancia difícil, pero también por una fuerza inmensa, sueños grandes y un corazón lleno de empatía. Su vida nos enseñó que cada niño (sin importar sus circunstancias) merece la oportunidad de crecer rodeado de apoyo, valores y posibilidades.",
+        p3: "Como consuelo, como homenaje, y como compromiso con su memoria, decidimos transformar ese dolor en acción. Así nació esta organización, con el propósito de acompañar a niñas y niños en situaciones vulnerables, ofreciéndoles herramientas para soñar y alcanzar una vida plena.",
+        p4: "Creemos que la infancia es la raíz de todo. Por eso, trabajamos para brindarles no solo apoyo intelectual y educativo, sino también valores humanos que les permitan desarrollar su potencial y usar los recursos a su alrededor con inteligencia, empatía y confianza.",
+        footer: "Nuestro sueño es que ellos también puedan cumplir los suyos."
+      },
+      fr: {
+        title: "ONG LE DÉSIR DES ENFANTS",
+        nav: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"],
+        sectionTitle: "QUI SOMMES-NOUS ?",
+        p1: "Notre ONG est née de l'amour, de la douleur et de l'espoir.",
+        p2: "En 2015, nous avons perdu un jeune très cher de notre famille. Il est parti trop tôt, avec une histoire marquée par une enfance difficile, mais aussi par une grande force, de grands rêves et un cœur plein d’empathie. Sa vie nous a appris que chaque enfant (peu importe ses circonstances) mérite de grandir entouré de soutien, de valeurs et de possibilités.",
+        p3: "En guise de réconfort, d’hommage et d’engagement envers sa mémoire, nous avons décidé de transformer cette douleur en action. C’est ainsi qu’est née cette organisation, afin d’accompagner les enfants en situation de vulnérabilité, en leur offrant des outils pour rêver et construire une vie épanouie.",
+        p4: "Nous croyons que l'enfance est la racine de tout. C’est pourquoi nous travaillons pour leur offrir non seulement un soutien intellectuel et éducatif, mais aussi des valeurs humaines pour développer leur potentiel avec intelligence, empathie et confiance.",
+        footer: "Notre rêve est qu'ils puissent aussi réaliser les leurs."
+      }
+    };
+  
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("main-title").textContent = t.title;
+      document.getElementById("nav-who").textContent = t.nav[0];
+      document.getElementById("nav-projects").textContent = t.nav[1];
+      document.getElementById("nav-help").textContent = t.nav[2];
+      document.getElementById("nav-contact").textContent = t.nav[3];
+      document.getElementById("section-title").textContent = t.sectionTitle;
+      document.getElementById("p1").textContent = t.p1;
+      document.getElementById("p2").textContent = t.p2;
+      document.getElementById("p3").textContent = t.p3;
+      document.getElementById("p4").textContent = t.p4;
+      document.getElementById("footer-text").textContent = t.footer;
+    }
+  </script>
+  
+</body>
+</html>
