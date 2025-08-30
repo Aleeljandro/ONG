@@ -261,6 +261,11 @@
     updateClock();
   
     function setLanguage(lang) {
+      localStorage.setItem("lang", lang); // ✅ Guardamos idioma elegido
+      applyLanguage(lang);
+    }
+  
+    function applyLanguage(lang) {
       if (lang === 'fr') {
         document.getElementById("main-title").innerHTML = `<a href="index.html" style="color: yellow; text-decoration: none;">ONG LE DÉSIR DES ENFANTS</a>`;
         const navLinks = document.querySelectorAll(".nav a");
@@ -272,14 +277,12 @@
         document.getElementById("help-title").textContent = "COMMENT AIDER ?";
         document.getElementById("donate-title").textContent = "Comment faire un don:";
   
-        // Seleccionamos TODOS los párrafos del contenido para asegurarnos de traducirlos todos:
         const paragraphs = document.querySelectorAll("#help-content > p");
         if(paragraphs.length >= 3) {
           paragraphs[0].innerHTML = `Votre aide peut faire une grande différence dans la vie de nombreux enfants.<br>
             Nous recueillons actuellement des dons de fournitures scolaires et acceptons également des contributions financières via Bizum.`;
           paragraphs[1].textContent = "Vous pouvez collaborer en faisant don de fournitures scolaires telles que :";
           paragraphs[2].textContent = "Ces matériaux seront directement remis aux enfants lors de nos prochaines missions.";
-          // Si tienes un cuarto párrafo para el mensaje final, ponlo aquí:
           if(paragraphs[3]) {
             paragraphs[3].innerHTML = `Chaque contribution, aussi petite soit-elle, est une graine d'avenir.<br>Merci de faire partie du changement !`;
           }
@@ -325,7 +328,14 @@
         document.querySelector("footer").innerHTML = `Cada aporte, por pequeño que sea, es una semilla de futuro.<br>¡Gracias por ser parte del cambio!`;
       }
     }
+  
+    // ✅ Al cargar la página, aplicar idioma guardado
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "es";
+      applyLanguage(savedLang);
+    });
   </script>
+  
   
 </body>
 </html>

@@ -231,8 +231,7 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
-  </script>
-  <script>
+  
     const translations = {
       es: {
         title: "ONG EL DESEO DE LOS NIÑOS",
@@ -257,6 +256,11 @@
     };
   
     function setLanguage(lang) {
+      localStorage.setItem("lang", lang); // ✅ guardar preferencia
+      applyLanguage(lang);
+    }
+  
+    function applyLanguage(lang) {
       const t = translations[lang];
       document.getElementById("main-title").textContent = t.title;
       document.getElementById("nav-who").textContent = t.nav[0];
@@ -270,6 +274,12 @@
       document.getElementById("p4").textContent = t.p4;
       document.getElementById("footer-text").textContent = t.footer;
     }
+  
+    // ✅ cargar idioma guardado al abrir la página
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "es";
+      applyLanguage(savedLang);
+    });
   </script>
   
 </body>

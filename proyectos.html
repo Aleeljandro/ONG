@@ -252,62 +252,75 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
-
-    function setLanguage(lang) {
-      const texts = {
-        es: {
-          title: "ONG EL DESEO DE LOS NIÑOS",
-          menu: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"],
-          project: {
-            title: "Proyecto en Divo, Costa de Marfil",
-            intro1: "En nuestra próxima misión, viajaremos a Divo, una ciudad ubicada al sur de Costa de Marfil, en la región de Lôh-Djiboua.",
-            intro2: "Este proyecto representa un paso más en nuestro compromiso con la infancia, llevando herramientas, valores y esperanza a comunidades que enfrentan grandes desafíos.",
-            intro3: "Durante nuestra estancia en Divo, realizaremos una serie de actividades diseñadas para fortalecer la autoestima, el aprendizaje y el bienestar emocional de los niños y niñas de la zona.",
-            activitiesTitle: "Actividades previstas:",
-            a1: "Talleres educativos y creativos: juegos didácticos, lectura en grupo, manualidades y actividades que estimulan el pensamiento, la imaginación y la colaboración.",
-            a2: "Dinámicas de desarrollo personal: espacios para que los niños reflexionen sobre sus sueños, se expresen libremente y fortalezcan su confianza y autoestima.",
-            a3: "Actividades deportivas y recreativas: juegos en equipo, fútbol, dinámicas de grupo que fomenten la alegría, el compañerismo y los hábitos saludables.",
-            a4: "Arte comunitario: pintura de murales y decoración de espacios compartidos con mensajes positivos creados por los propios niños.",
-            closing: "Con cada acción, buscamos sembrar herramientas reales y emocionales que les permitan crecer con dignidad, conciencia y esperanza. En Divo, como en cada rincón al que llegamos, apostamos por una infancia que pueda imaginar y construir su futuro."
-          }
-        },
-        fr: {
-          title: "ONG LE DÉSIR DES ENFANTS",
-          menu: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"],
-          project: {
-            title: "Projet à Divo, Côte d'Ivoire",
-            intro1: "Lors de notre prochaine mission, nous nous rendrons à Divo, une ville située au sud de la Côte d'Ivoire, dans la région de Lôh-Djiboua.",
-            intro2: "Ce projet représente une étape de plus dans notre engagement envers l'enfance, en apportant des outils, des valeurs et de l'espoir à des communautés confrontées à de grands défis.",
-            intro3: "Pendant notre séjour à Divo, nous mènerons une série d'activités conçues pour renforcer l'estime de soi, l'apprentissage et le bien-être émotionnel des enfants de la région.",
-            activitiesTitle: "Activités prévues :",
-            a1: "Ateliers éducatifs et créatifs: jeux éducatifs, lectures en groupe, travaux manuels et activités stimulant la pensée, l’imagination et la collaboration.",
-            a2: "Dynamiques de développement personnel: espaces pour que les enfants réfléchissent à leurs rêves, s’expriment librement et renforcent leur confiance et leur estime de soi.",
-            a3: "Activités sportives et récréatives: jeux en équipe, football, dynamiques de groupe favorisant la joie, la camaraderie et des habitudes saines.",
-            a4: "Art communautaire: peinture de fresques et décoration d’espaces partagés avec des messages positifs créés par les enfants eux-mêmes.",
-            closing: "Avec chaque action, nous cherchons à semer des outils concrets et émotionnels permettant aux enfants de grandir avec dignité, conscience et espoir. À Divo, comme dans chaque lieu où nous intervenons, nous misons sur une enfance capable d’imaginer et de construire son avenir."
-          }
+  
+    const texts = {
+      es: {
+        title: "ONG EL DESEO DE LOS NIÑOS",
+        menu: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"],
+        project: {
+          title: "Proyecto en Divo, Costa de Marfil",
+          intro1: "En nuestra próxima misión, viajaremos a Divo, una ciudad ubicada al sur de Costa de Marfil, en la región de Lôh-Djiboua.",
+          intro2: "Este proyecto representa un paso más en nuestro compromiso con la infancia, llevando herramientas, valores y esperanza a comunidades que enfrentan grandes desafíos.",
+          intro3: "Durante nuestra estancia en Divo, realizaremos una serie de actividades diseñadas para fortalecer la autoestima, el aprendizaje y el bienestar emocional de los niños y niñas de la zona.",
+          activitiesTitle: "Actividades previstas:",
+          a1: "Talleres educativos y creativos: juegos didácticos, lectura en grupo, manualidades y actividades que estimulan el pensamiento, la imaginación y la colaboración.",
+          a2: "Dinámicas de desarrollo personal: espacios para que los niños reflexionen sobre sus sueños, se expresen libremente y fortalezcan su confianza y autoestima.",
+          a3: "Actividades deportivas y recreativas: juegos en equipo, fútbol, dinámicas de grupo que fomenten la alegría, el compañerismo y los hábitos saludables.",
+          a4: "Arte comunitario: pintura de murales y decoración de espacios compartidos con mensajes positivos creados por los propios niños.",
+          closing: "Con cada acción, buscamos sembrar herramientas reales y emocionales que les permitan crecer con dignidad, conciencia y esperanza. En Divo, como en cada rincón al que llegamos, apostamos por una infancia que pueda imaginar y construir su futuro."
         }
-      };
-
-      document.getElementById("main-title").innerHTML = `<a href="index.html" style="color: yellow; text-decoration: none;">${texts[lang].title}</a>`;
+      },
+      fr: {
+        title: "ONG LE DÉSIR DES ENFANTS",
+        menu: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"],
+        project: {
+          title: "Projet à Divo, Côte d'Ivoire",
+          intro1: "Lors de notre prochaine mission, nous nous rendrons à Divo, une ville située au sud de la Côte d'Ivoire, dans la région de Lôh-Djiboua.",
+          intro2: "Ce projet représente une étape de plus dans notre engagement envers l'enfance, en apportant des outils, des valeurs et de l'espoir à des communautés confrontées à de grands défis.",
+          intro3: "Pendant notre séjour à Divo, nous mènerons une série d'activités conçues pour renforcer l'estime de soi, l'apprentissage et le bien-être émotionnel des enfants de la région.",
+          activitiesTitle: "Activités prévues :",
+          a1: "Ateliers éducatifs et créatifs: jeux éducatifs, lectures en groupe, travaux manuels et activités stimulant la pensée, l’imagination et la collaboration.",
+          a2: "Dynamiques de développement personnel: espaces pour que les enfants réfléchissent à leurs rêves, s’expriment librement et renforcent leur confiance et leur estime de soi.",
+          a3: "Activités sportives et récréatives: jeux en équipe, football, dynamiques de groupe favorisant la joie, la camaraderie et des habitudes saines.",
+          a4: "Art communautaire: peinture de fresques et décoration d’espaces partagés avec des messages positifs créés par les enfants eux-mêmes.",
+          closing: "Avec chaque action, nous cherchons à semer des outils concrets et émotionnels permettant aux enfants de grandir avec dignité, conscience et espoir. À Divo, comme dans chaque lieu où nous intervenons, nous misons sur une enfance capable d’imaginer et de construire son avenir."
+        }
+      }
+    };
+  
+    function setLanguage(lang) {
+      localStorage.setItem("lang", lang); // ✅ Guardar preferencia
+      applyLanguage(lang);
+    }
+  
+    function applyLanguage(lang) {
+      const t = texts[lang];
+      document.getElementById("main-title").innerHTML =
+        `<a href="index.html" style="color: yellow; text-decoration: none;">${t.title}</a>`;
       const links = document.querySelectorAll(".nav a");
-      links.forEach((link, i) => link.textContent = texts[lang].menu[i]);
-
-      const p = texts[lang].project;
+      links.forEach((link, i) => link.textContent = t.menu[i]);
+  
+      const p = t.project;
       document.getElementById("project-title").textContent = p.title;
       document.getElementById("intro-1").textContent = p.intro1;
       document.getElementById("intro-2").textContent = p.intro2;
       document.getElementById("intro-3").textContent = p.intro3;
       document.getElementById("activities-title").textContent = p.activitiesTitle;
-
-      // Para las actividades, usamos innerHTML para mantener el <strong>
+  
       document.getElementById("activity-1").innerHTML = `<strong>${p.a1.split(":")[0]}:</strong>${p.a1.split(":")[1]}`;
       document.getElementById("activity-2").innerHTML = `<strong>${p.a2.split(":")[0]}:</strong>${p.a2.split(":")[1]}`;
       document.getElementById("activity-3").innerHTML = `<strong>${p.a3.split(":")[0]}:</strong>${p.a3.split(":")[1]}`;
       document.getElementById("activity-4").innerHTML = `<strong>${p.a4.split(":")[0]}:</strong>${p.a4.split(":")[1]}`;
-
+  
       document.getElementById("closing").textContent = p.closing;
     }
+  
+    // ✅ Al cargar la página, aplicar idioma guardado
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "es";
+      applyLanguage(savedLang);
+    });
   </script>
+  
 </body>
 </html>

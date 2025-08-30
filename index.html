@@ -279,38 +279,47 @@ body {
     }
     setInterval(updateClock, 1000);
     updateClock();
-
+  
     // Carrusel automático
     const carousel = document.getElementById('carousel');
     const totalSlides = carousel.children.length;
     let index = 0;
-
     setInterval(() => {
       index = (index + 1) % totalSlides;
       carousel.style.transform = `translateX(-${index * 100}%)`;
     }, 3000);
-
-    // Cambiar idioma
+  
+    // Traducciones
+    const texts = {
+      es: {
+        title: "ONG EL DESEO DE LOS NIÑOS",
+        menu: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"]
+      },
+      fr: {
+        title: "ONG LE DÉSIR DES ENFANTS",
+        menu: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"]
+      }
+    };
+  
     function setLanguage(lang) {
-      const texts = {
-        es: {
-          title: "ONG EL DESEO DE LOS NIÑOS",
-          menu: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"]
-        },
-        fr: {
-          title: "ONG LE DÉSIR DES ENFANTS",
-          menu: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"]
-        }
-
-      };
-
+      localStorage.setItem("lang", lang); // ✅ Guardar idioma
+      applyLanguage(lang);
+    }
+  
+    function applyLanguage(lang) {
       document.getElementById("main-title").textContent = texts[lang].title;
-
       const links = document.querySelectorAll(".nav a");
       links.forEach((link, index) => {
         link.textContent = texts[lang].menu[index];
       });
     }
+  
+    // ✅ Al cargar la página, aplicar idioma guardado
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "es"; // español por defecto
+      applyLanguage(savedLang);
+    });
   </script>
+  
 </body>
 </html>

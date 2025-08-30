@@ -241,27 +241,33 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
-
+  
+    const texts = {
+      es: {
+        title: "ONG EL DESEO DE LOS NIÑOS",
+        nav: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"],
+        contactTitle: "CONTACTO",
+        instagram: "Instagram",
+        facebook: "Facebook"
+      },
+      fr: {
+        title: "ONG LE DÉSIR DES ENFANTS",
+        nav: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"],
+        contactTitle: "CONTACT",
+        instagram: "Instagram",
+        facebook: "Facebook"
+      }
+    };
+  
     function setLanguage(lang) {
-      const texts = {
-        es: {
-          title: "ONG EL DESEO DE LOS NIÑOS",
-          nav: ["¿Quiénes somos?", "Proyectos", "¿Cómo ayudar?", "Contacto"],
-          contactTitle: "CONTACTO",
-          instagram: "Instagram",
-          facebook: "Facebook"
-        },
-        fr: {
-          title: "ONG LE DÉSIR DES ENFANTS",
-          nav: ["Qui sommes-nous ?", "Projets", "Comment aider ?", "Contact"],
-          contactTitle: "CONTACT",
-          instagram: "Instagram",
-          facebook: "Facebook"
-        }
-      };
-
+      localStorage.setItem("lang", lang); // ✅ Guardar preferencia
+      applyLanguage(lang);
+    }
+  
+    function applyLanguage(lang) {
       const t = texts[lang];
-      document.getElementById("main-title").innerHTML = `<a href="index.html" style="color: yellow; text-decoration: none;">${t.title}</a>`;
+      document.getElementById("main-title").innerHTML =
+        `<a href="index.html" style="color: yellow; text-decoration: none;">${t.title}</a>`;
       document.getElementById("nav1").textContent = t.nav[0];
       document.getElementById("nav2").textContent = t.nav[1];
       document.getElementById("nav3").textContent = t.nav[2];
@@ -270,6 +276,13 @@
       document.getElementById("insta-label").textContent = t.instagram;
       document.getElementById("fb-label").textContent = t.facebook;
     }
+  
+    // ✅ Al cargar, aplicar idioma guardado
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "es";
+      applyLanguage(savedLang);
+    });
   </script>
+  
 </body>
 </html>
